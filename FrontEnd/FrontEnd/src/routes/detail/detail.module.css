@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.botonatras {
+  position: fixed;
+  background-color: transparent;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+.imagen {
+  /*margin-top: 65px;*/
+  display: flex;
+  height: 870px;
+  width: 100%;
+}
+.imagen2 {
+  position: relative;
+  display: flex;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 90% 100%, 0% 75%);
+}
+.botonGaleria {
+  margin-top: -90px;
+  margin-left: 10px;
+  max-width: 50%;
+}
+.prevista {
+  display: flex;
+  order: 2;
+  margin-right: 300px;
+  margin-top: 160px;
+  height: 600px;
+  width: 600px;
+}
+
+.bg_dark{
+  background-color: #212529;
+}
+
+.titulo {
+  display: flex;
+  width: 100%;
+  font-family: "Nunito Sans 900", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  margin-left: 20px;
+  margin-top: 0px;
+  margin-bottom: 60px;
+}
+.caracteristicasdescripcion {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.caracteristicas {
+  display: flex;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.textcaract {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.iconos {
+  display: flex;
+  font-size: 20px;
+}
+.iconos2 {
+  height: 38px;
+  width: 38px;
+  margin-top: 20px;
+}
+.descripcion {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  font-size: 15px;
+  width: 40%;
+}
+.imagendescripcion {
+  height: 50px;
+  width: 900px;
+}
+.presupuesto {
+  display:flex;
+  justify-content: space-between;
+}
+
+.montos {
+  display: flex;
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 25px;
+
+}
+
+
+.calendario{
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  width: 40%;
+
+}
+
+.inicioCursos{
+  padding: 20px;
+  margin: 15px 0px;
+}
+
+
+.calendarioHoras{
+  padding: 20px;
+}
+
+.diayhora{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.contenedorResultados{
+  border: 1px solid gray;
+  display:flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0px;
+}
+.resultados{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 20px;
+  width: 20%;
+  
+}
+
+.contenedorPoliticas{
+  border: 1px solid gray;
+  display:flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.politica{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 14px;
+  width: 25%;
+}
+
+.boton-abajo {
+  position: fixed;
+}
+p {
+  margin-top: 25px;
+  padding-right: 25px;
+}
+.p {
+  margin-top: 25px;
+  padding-right: 25px;
+}
+.detalles {
+  /*toma desde caracyteristicas*/
+  display: flex;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.barra {
+  position: absolute;
+  top: 115px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  z-index: 2;
+  width: 170px;
+  height: 775px;
+  
+   backdrop-filter: blur(10px); 
+   background: rgba(0, 0, 0, 0.6);
+  background-color: rgba(19, 19, 19, 0.6); 
+  box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.75);
+}
+
+
+.cont_min {
+  margin: 10px 0px;
+  width: 170px;
+  height: 160px;
+}
+
+.imagen_min {
+  object-fit: cover;
+  height: 160px;
+  max-width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .barra {
+    width: 130px;
+  }
+  .cont_min {
+    max-width: 130px;
+  }
+  .calendario{
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .barra {
+    width: 110px;
+  }
+  .cont_min {
+    max-width: 110px;
+  }
+  .imagen {
+    border: none;
+  }
+  .presupuesto{
+    flex-direction: column;
+    align-items: center;
+  }
+  .calendario{
+    align-items: center;
+    width: 100%;
+  }
+  .caracteristicasdescripcion {
+    flex-direction:column-reverse;
+    width: 100%;
+  }
+  .descripcion, .caracteristicas, .detalles{
+    width: 100%;
+  }
+  
+
+  
+}
+@media (max-width: 580px) {
+  .barra {
+    /* flex-direction: column-reverse;*/
+    width: 110px;
+    backdrop-filter: none;
+    background: transparent;
+    background-color: transparent;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+  .cont_min {
+    display: none;
+  }
+
+}

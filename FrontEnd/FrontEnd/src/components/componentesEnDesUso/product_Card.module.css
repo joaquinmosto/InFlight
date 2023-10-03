@@ -1,0 +1,65 @@
+.ProductCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border: 3px solid rgb(0, 137, 254);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #1e1e1e;
+  transition: box-shadow 0.3s ease;
+}
+
+.ProductCard:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ProductCardImg {
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.ProductCardTitle {
+  font-family: "nunito";
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  color: #cecccc;
+  text-align: center;
+}
+
+.ProductCardSubtitle {
+  font-size: 16px;
+  margin: 0;
+  color: #666;
+}
+
+.ProductCardDescription {
+  font-family: sans-serif;
+  font-weight: lighter;
+  font-size: 12px;
+  margin: 10px 0;
+  color: #c1c0c0;
+  text-align: center;
+}
+
+.ProductCard a {
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+}
+
+.ProductCard button {
+  margin: 5px;
+  background: rgba(0, 137, 254, 1) 100%;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.ProductCard button:hover {
+  background-color: #53a6ff;
+}

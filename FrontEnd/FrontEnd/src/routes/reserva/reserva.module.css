@@ -1,0 +1,416 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,900&display=swap");
+
+.raiz{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #D9D9D9;
+  color: #636767;
+}
+.cuerpo{
+  width: 90%;
+  
+  /* SI EN MONITORES GRANDES SE ROMPE BORREN EL max-width: ; */
+  max-width: 1300px;
+}
+
+.encabezado{
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+.textos{
+  padding: 1.5rem;
+}
+.titulo {
+  font-family: "Nunito Sans 900", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  /*   margin-left: 20px;
+  margin-top: 0px;
+  margin-bottom: 60px; */
+}
+
+/* .p {
+  margin-top: 25px;
+  padding-right: 25px;
+} */
+.pp{
+  padding: 0;
+}
+
+.presupuesto {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.montos {
+  display: flex;
+  display: inline-block;
+  margin-left: 50px;
+  font-size: 20px;
+  
+  
+}
+
+.calendario{
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  width: 60%;
+
+}
+
+.galeria{
+background-color: transparent;
+border: red solid;
+width: 50%;
+}
+.botonatras {
+  position: fixed;
+  background-color: transparent;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  
+}
+.imagen {
+  width: 100%;
+}
+
+
+.caracteristicas {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 20%;
+  text-align: center;
+  /* display: inline-block; */
+/*   margin-left: 20px; */
+}
+/* .caracteristicasdescripcion {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+} */
+
+.iconos {
+  display: flex;
+  font-size: 20px;
+}
+.iconos2 {
+  height: 38px;
+  width: 38px;
+  margin-top: 20px;
+}
+
+.contenedorResultados{
+  border: 1px solid gray;
+  display:flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0px;
+}
+
+.resultadoSeleccionado{
+  border: 1px solid rgb(113, 205, 244);
+  background-color: rgba(255, 255, 255, 0.1);
+  display:flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0px;
+}
+
+.resultados{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 20px;
+  width: 20%;
+  
+}
+
+.formulario{
+  display: flex;
+  width: 100%;
+  color: #636767;
+  flex-direction: column;
+  align-items: center;
+  border: red solid;
+}
+.inputs{
+  margin: 10px;
+  width: 400px;
+ padding: 20px;
+ color: #636767;
+}
+.inicioCursos{
+  padding: 20px;
+  margin: 15px 0px;
+}
+.montoTotal{
+  width: 100%;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+@media (max-width: 1000px) {
+  .encabezado{
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .encabezado{
+    flex-direction: column;
+    align-items: center;
+  }
+  .textos{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .titulo {
+    font-size: 25px;
+
+  }
+  .p {
+    width: 90%;
+  }
+  .presupuesto {
+    flex-direction: column;
+    /* NO PUEDO ARREGLAR Y CENTRAR EL CALENDARIO XDXD */
+    /* align-items: center; */
+  }
+  .montos {
+    display: flex;
+    display: inline-block;
+    font-size: 10px;
+/*     margin-left: 20px;
+    font-size: 25px; */
+  
+  }
+  
+  .calendario{
+    /* no pude alinear el calendario al centro */
+  }
+  .galeria{
+    width: 90%;
+  }
+  .caracteristicas {
+    justify-content: center;
+  }
+  .iconos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+  }
+  .iconos2 {
+    margin: 0;
+    padding: 0;
+    height: 25px;
+    width: 25px;
+  }
+  .pCaracteristicas{
+    margin: 0;
+    padding: 0;
+  }
+  .formulario {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .inputs {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .caracteristicas{
+    align-items: center;
+  }
+  .contenedorResultados, .resultadoSeleccionado {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .contenedorResultados p, .resultadoSeleccionado p {
+    flex-grow: 1;
+    margin: 0;
+    padding: 10px;
+  }
+
+  .contenedorResultados {
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 15px 0px;
+    width: 90%;
+  }
+
+  .resultadoSeleccionado {
+    border: 1px solid rgb(113, 205, 244);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 15px 0px;
+    width: 90%;
+  }
+  .inicioCursos{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+}
+
+
+.bg_dark{
+  background-color: #212529;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.calendarioHoras{
+  padding: 20px;
+}
+
+.diayhora{
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+
+.contenedorPoliticas{
+  border: 1px solid gray;
+  display:flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.politica{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 14px;
+  width: 25%;
+}
+
+.boton-abajo {
+  position: fixed;
+}
+
+.detalles {
+  display: flex;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+ 
+   backdrop-filter: blur(10px); 
+   background: rgba(0, 0, 0, 0.6);
+  background-color: rgba(19, 19, 19, 0.6); 
+  box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.75);
+}
+
+
+.cont_min {
+  
+  margin: 10px 0px;
+  width: 170px;
+  height: 160px;
+}
+
+.imagen_min {
+  object-fit: cover;
+  height: 160px;
+  max-width: 100%;
+}
+
+
+
+/* @media (max-width: 1200px) {
+  .barra {
+    width: 130px;
+  }
+  .cont_min {
+    max-width: 130px;
+  }
+  .calendario{
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .barra {
+    width: 110px;
+  }
+  .cont_min {
+    max-width: 110px;
+  }
+  .imagen {
+    border: none;
+  }
+  .presupuesto{
+    flex-direction: column;
+    align-items: center;
+  }
+  .calendario{
+    align-items: center;
+    width: 100%;
+  }
+  .caracteristicasdescripcion {
+    flex-direction:column-reverse;
+    width: 100%;
+  }
+  .descripcion, .caracteristicas, .detalles{
+    width: 100%;
+  }
+  
+
+  
+}
+@media (max-width: 580px) {
+  .barra {
+    width: 110px;
+    backdrop-filter: none;
+    background: transparent;
+    background-color: transparent;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+  .cont_min {
+    display: none;
+  }
+
+} */

@@ -1,0 +1,89 @@
+stages:
+  - build
+  - deploy
+
+build_backend:
+  stage: build
+  image: maven:3.8.6-openjdk-18
+  script:
+    - cd BackEnd/bacend
+    - echo "Building app..."
+    - mvn clean
+    - mvn clean install
+    - echo "Finished building the app."
+  artifacts:
+    paths:
+      - BackEnd/bacend/target/bacend-0.0.1-SNAPSHOT.jar
+  rules:
+    - changes:
+        - BackEnd/**/*
+
+build_frontend:
+  stage: build
+  image: node:18.17.1
+  script:
+    - echo "Building the app"
+    - cd FrontEnd/FrontEnd
+    - ls
+    - npm --force install
+    - CI=false npm run build
+    - echo "Finished building the app."
+    - cd dist
+    - ls
+    - cd ..
+    - pwd
+  artifacts:
+    name: react_build
+    paths:
+      - ./FrontEnd/FrontEnd/dist/
+  rules:
+    - changes:
+        - FrontEnd/**/*
+
+deploy_Backend:
+  stage: deploy
+  needs: [build_backend]
+  image: alpine:3.11
+  before_script:
+    - apk update && apk add openssh-client bash
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - touch ~/.ssh/config
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - ssh-keyscan -H "$DEPLOY_SERVER_IP" >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Deploying started..."
+    - ssh ubuntu@$DEPLOY_SERVER_IP "sudo systemctl stop api.service"
+    - scp BackEnd/bacend/target/bacend-0.0.1-SNAPSHOT.jar ubuntu@$DEPLOY_SERVER_IP:~/
+    - ssh ubuntu@$DEPLOY_SERVER_IP "sudo systemctl start api.service"
+    - echo "Finished deploying the app."
+  rules:
+    - changes:
+        - BackEnd/**/*
+
+deploy_Frontend:
+  stage: deploy
+  needs: [build_frontend]
+  image: alpine:3.11
+  before_script:
+    - apk update && apk add openssh-client bash
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - touch ~/.ssh/config
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - ssh-keyscan -H "$DEPLOY_SERVER_IP" >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - echo "Deploying started..."
+    - scp -rp FrontEnd/FrontEnd/dist ubuntu@$DEPLOY_SERVER_IP:~/dist
+    - ssh ubuntu@$DEPLOY_SERVER_IP "./actualizarWEB.sh"
+    - echo "Finished deploying the app."
+  rules:
+    - changes:
+        - FrontEnd/FrontEnd/**/*
+

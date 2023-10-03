@@ -1,0 +1,171 @@
+/*.contenedorCategorias{
+  display: flex;
+  justify-content:space-evenly;
+  width:100%;
+  align-items:center;
+  margin-top:4px;
+}*/
+
+/*.contenedorCategoriaIndividual{
+  display:flex;
+  flex-direction:column; 
+  align-content:center; 
+  align-items:center
+}*/
+
+.Categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.Categories h2 {
+  margin-bottom: 10px;
+  color: #cecccc;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SectionProductCard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 90px;
+}
+
+.SectionNothingFind{
+  display: flex;
+  justify-content: center;
+}
+.SectionNothingFind h2 {
+  text-align: center;
+}
+
+.defaultButton {
+  /*   align-items: center;
+  text-decoration: none;
+  border: none; */
+  /* padding: 8px 16px; */
+  /* padding: 0 auto;
+  cursor: pointer;
+  font-size: small;
+  border-radius: 6px;
+  background: #343838;
+  color: #FFFFFF;
+  width: 120px;
+  height: 34px;
+  transition: 0.3s; */
+  /* lo de arriba era para los botones comunes */
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  transition: 0.2s;
+
+
+}
+
+.defaultButton:hover {
+  /* background-color: #0089FE; */
+  border: 2px solid #0089FE;
+}
+
+
+.selectedButton {
+  background: #0089FE;
+}
+
+.results {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 2rem;
+
+}
+
+@media (max-width: 550px) {
+  .SectionProductCard {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* .SearchBar {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.SearchBar input {
+  width: 50%;
+  padding: 8px;
+  border: none;
+  border-radius: 50px;
+} */
+
+.NavigateButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px 0px;
+  gap: 5px;
+
+}
+
+.NavigateButtons button {
+  padding: 5px 10px;
+  font-size: small;
+  background-color: #615e5e;
+}
+
+@media (max-width: 550px) {
+  .Categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Categories h2 {
+    font-size: medium;
+  }
+
+  .CategoryButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .results {
+    font-size: 10px;
+    font-weight: 300;
+    margin-left: 1%;
+  }
+}
+
+@media (max-width: 416px) {
+  .Categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Categories h2 {
+    font-size: 21px;
+  }
+
+  .CategoryButtons {
+    display: flex;
+    flex-direction: column;
+    /* width: 50%; */
+  }
+}

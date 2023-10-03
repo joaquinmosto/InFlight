@@ -1,0 +1,9 @@
+.imgGaleria{
+    object-fit: cover;
+    height: 100vh;
+    max-width: 100vw;
+}
+
+.cont{
+    text-align: center;
+}

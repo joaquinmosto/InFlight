@@ -1,0 +1,160 @@
+h2 {
+  font-size: 20px;
+}
+.MuiTabs-scrollButtons.Mui-disabled {
+  opacity: 0.3;
+}
+
+.mainSearch {
+  display: flex;
+  justify-content:space-evenly;
+  align-items: center;
+  background-color: #212529;
+  margin: 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  width: 98%;
+  
+}
+
+.tituloCategorias {
+  font-family: "Nunito Sans", sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 20px;
+}
+.categories {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 70%;
+  align-items: center;
+  border-radius: 25px;
+  font-size: small;
+  padding: 0.55rem;
+}
+
+.categories h2 {
+  color: #e8e5e5ef;
+  font-size: 15px;
+}
+
+.dateSection {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  /* align-items:baseline; */
+  width: 20%;
+  flex-direction: column;
+
+}
+.textFecha{
+  text-align: center;
+}
+
+.searchIcon {
+  color: #fffdfd;
+  font-size: 23px;  
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.searchIcon:hover{
+  color: rgb(0, 137, 254);
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-radius: 0 25px 25px 0;
+  font-size: 1rem;
+  color: white;
+  width: 100%;
+  margin: 5%;
+
+}
+
+.dateLabel {
+  margin-bottom: 5%;
+  color: #f0f0f0ee;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.labelH2 {
+  font-size: 15px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+}
+
+.searchBtn {
+  color: white;
+  border: none;
+  background-color: #212529;
+  border-radius: 5px;
+  cursor: pointer;
+  padding-top: 5px;
+  padding-bottom: 9px;
+  display: flex;
+  flex-direction:column;
+ margin-top: 5%;
+ position: relative;
+ 
+
+
+
+
+}
+/* display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  /* align-items: center; Centra verticalmente */
+  /* height: 100vh  */
+
+.searchInput::placeholder {
+  color: rgb(210, 209, 209);
+  /* Cambia el color del placeholder */
+}
+
+@media (max-width: 1300px) {
+  .mainSearch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-top: 10px;
+  }
+
+  .categories {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding: 0%;
+  }
+
+  .categories h2 {
+    font-size: medium;
+    margin-top: 5px;
+  }
+  .dateLabel {
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+  .dateSection{
+    width: 75%;
+    max-width: 600px;
+    margin: 10px 0;
+  }
+}
+@media (max-width: 768px) {
+ .mainSearch{
+  margin-right: 10px;
+ }
+}

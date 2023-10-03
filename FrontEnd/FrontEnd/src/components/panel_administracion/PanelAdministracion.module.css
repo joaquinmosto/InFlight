@@ -1,0 +1,30 @@
+* {
+    font-family: 'Nunito', 'Source Sans 3';
+}
+.menu{
+    margin: 10px;
+}
+.item{
+    margin: 10px;
+}
+
+.item:hover{
+    color: #007bfe;
+    cursor:pointer;
+}
+.nomovil{
+    display: none;
+}
+.contenedor{
+    margin: 40px auto;
+    max-width: 90%;
+}
+@media (max-width: 768px) {
+    .container{
+        display: none;
+    }
+    .nomovil{
+        display: block;
+    }
+    
+}

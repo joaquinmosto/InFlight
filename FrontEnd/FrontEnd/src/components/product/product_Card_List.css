@@ -1,0 +1,50 @@
+.Product-Card-List-Item {
+  display: flex;
+  width: 90%;
+  margin: 20px auto;
+  padding: 10px;
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgb(192, 219, 232);
+
+  font-weight: bold;
+}
+
+.link {
+  display: flex;
+  text-decoration: solid;
+  color: black;
+}
+
+.column-list {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+.column-list img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50vh;
+ 
+}
+
+.edit-btn {
+  padding: 5px 10px;
+  background-color: #0089fe;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 3px;
+}
+
+.eliminate-btn {
+  padding: 5px 10px;
+  background-color: rgb(248, 37, 37);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 3px;
+}

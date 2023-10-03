@@ -1,0 +1,200 @@
+.div {
+  background-color: #212529;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+@media (min-width: 551px) {
+  .div {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    left: 0;
+
+
+
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    color: #1e1e1e;
+    font-weight: 100;
+  }
+  .isologotipo {
+    max-width: 115px;
+    /* arreglado */
+  }
+  .logoazul {
+    display: none;
+  }
+  .contenedor {
+    margin: 0px 15px;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2px;
+  }
+  .searchBar {
+    display: flex;
+    align-items: center;
+    background-color: #6a6969;
+    border-radius: 25px;
+    padding: 8px;
+    margin-left: 20px;
+    width: 500px;
+    font-size: 10px;
+    padding: 3px;
+  }
+  
+  .searchIcon {
+    margin-right: 25px;
+    margin-left: 5px;
+    color: #c3c2c2;
+  }
+  
+  .searchInput {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-radius: 0 25px 25px 0;
+    width: 100%;
+    font-size: 14px;
+    color: white;
+  }
+  
+  .searchInput::placeholder {
+    color: rgb(189, 187, 187); /* Cambia el color del placeholder */
+    font-size: 14px;
+  }
+}
+
+
+
+@media (max-width: 640px) {
+  /* Ocultar la barra de búsqueda en resoluciones menores a 550px */
+  .searchBar {
+    display: none;
+  }
+}
+@media (max-width: 550px) {
+  .div {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    color: #1e1e1e;
+    font-weight: 100;
+  }
+  .isologotipo {
+    display: none;
+  }
+  .logoazul {
+    max-width: 55px;
+  }
+
+  .searchBar {
+    display: none;
+  }
+  
+  .contenedor {
+    margin: 0px 15px;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 2px;
+  }
+}
+@media (max-width: 430px) {
+  .div {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    justify-content: space-evenly;
+    height: 65px;
+    color: #1e1e1e;
+    font-weight: 100;
+  }
+  .isologotipo {
+    display: none;
+  }
+  .logoazul {
+    max-width: 50px;
+  }
+  .contenedor {
+    margin: 0px;
+    text-decoration: none;
+  }
+
+  .searchBar {
+    display: none;
+  }
+}
+
+.link {
+  color: #1e1e1e;
+  text-decoration: none;
+}
+
+.contenedor button{
+  padding: 5px 10px;
+}
+
+.userInitialsCircle {
+  display: inline-block;
+  width: 30px; /* Ajusta el tamaño del círculo según tus preferencias */
+  height: 30px; /* Ajusta el tamaño del círculo según tus preferencias */
+  background-color: white;
+  border-radius: 50%;
+  text-align: center;
+  margin-top: 5px;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+/* Estilo para las iniciales */
+.userInitials {
+  line-height: 30px; /* Asegura que las iniciales estén centradas verticalmente en el círculo */
+  font-size: 16px; /* Ajusta el tamaño de fuente según tus preferencias */
+  color: #333; /* Cambia el color del texto según tus preferencias */
+  display: flex;
+  align-content: flex-end;
+  justify-content: center;
+}
+
+
+
+.dropdownContent {
+  justify-content: flex-end;
+  margin-top: 20px;
+  background-color: grey;
+  opacity: 80%;
+  
+}
+
+ul {
+  list-style: none; /* Elimina los marcadores de lista */
+  padding: 20px; /* Elimina el espacio interior (padding) */
+  margin: 0; /* Elimina el margen exterior */
+}
+
+ul li a {
+  text-decoration: none; /* Elimina el subrayado */
+  color: whitesmoke; /* Hereda el color de fuente */
+}
+
+
+.visible {
+  display: block; /* Mostrar cuando la clase 'visible' está presente */
+}
