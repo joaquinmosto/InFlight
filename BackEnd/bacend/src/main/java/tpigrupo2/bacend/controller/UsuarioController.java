@@ -12,17 +12,17 @@ import tpigrupo2.bacend.service.IUserService;
 @RestController
 @RequestMapping("/usuario")
 @RequiredArgsConstructor
-public class UsuarioController {
-
-
+public class UsuarioController
+{
     @Autowired
     private final IUserService userService;
 
     @CrossOrigin("*")
     @PutMapping
-    public ResponseEntity<String> ModificarUsuario(@RequestBody User userRequest) {
+    public ResponseEntity<String> ModificarUsuario(@RequestBody User userRequest)
+    {
         User u = userService.buscarUsuario(userRequest.getUsername());
-        if(u == null){
+        if (u == null) {
             return ResponseEntity.badRequest().body("El Usuario no existe");
         }
         try {
@@ -33,21 +33,23 @@ public class UsuarioController {
             u.setFirstname(userRequest.getFirstname() !=null?userRequest.getFirstname(): u.getFirstname());
             u.setLastname(userRequest.getLastname() !=null?userRequest.getLastname(): u.getLastname());
             userService.editarUsuario(u);
+
             return ResponseEntity.ok("Usuario modificado correctamente.");
-        }catch (Exception e){
+
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al modificar el usuario."+ e.getMessage());
         }
     }
 
     @CrossOrigin("*")
     @GetMapping("/{usuario}")
-    public ResponseEntity<String> buscarUsuario(@PathVariable String usuario) {
+    public ResponseEntity<String> buscarUsuario(@PathVariable String usuario)
+    {
         User u = userService.buscarUsuario(usuario);
-        if(u == null){
+        if (u == null) {
             return ResponseEntity.badRequest().body("El Usuario no existe");
         }
         try {
-
             org.json.JSONObject obj = new org.json.JSONObject();
             obj.put("firstname", u.getFirstname());
             obj.put("lastname",u.getLastname());
@@ -56,9 +58,9 @@ public class UsuarioController {
             obj.put("telefono",u.getTelefono());
             obj.put("dni",u.getDni());
 
-        return ResponseEntity.ok(obj.toString());
+            return ResponseEntity.ok(obj.toString());
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al modificar el usuario."+ e.getMessage());
         }
     }

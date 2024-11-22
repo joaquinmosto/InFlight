@@ -7,6 +7,7 @@ import tpigrupo2.bacend.model.Caracteristica;
 import java.util.List;
 
 @Repository
-public interface ICaracteristicaRepository extends JpaRepository<Caracteristica, Integer> {
-    List<Caracteristica> findByNombre(String nombre);;
+public interface ICaracteristicaRepository extends JpaRepository<Caracteristica, Integer>
+{
+    List<Caracteristica> findByNombre(String nombre);
 }

@@ -16,30 +16,36 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name ="productos")
-public class Producto implements Serializable {
+public class Producto implements Serializable
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String nombre;
+
     private String descripcion;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_producto")
     private List<Detalle_Producto> detalles = new ArrayList<>();
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_producto")
     private List<Imagenes> imagenes = new ArrayList<>();
+
     @OneToOne
     @JoinColumn(name = "categoria")
     private Categoria categoria;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_producto")
     private List<Curso> cursos;
+
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
     private List<Calificaciones_Producto> puntuaciones = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_producto")
     private List<Politica> politicas;
-
-
 }

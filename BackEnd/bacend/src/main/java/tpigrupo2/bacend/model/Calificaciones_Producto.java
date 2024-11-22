@@ -1,6 +1,5 @@
 package tpigrupo2.bacend.model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,15 +14,17 @@ import tpigrupo2.bacend.security.User.User;
 @NoArgsConstructor
 @Entity
 @Table(name ="CalificacionesXProducto")
-public class Calificaciones_Producto {
-
+public class Calificaciones_Producto
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private User usuario;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "producto_id")

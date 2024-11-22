@@ -13,13 +13,17 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name ="producto_detalle")
-public class Detalle_Producto implements Serializable {
+public class Detalle_Producto implements Serializable
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String descripcion;
+
     private Double cantidad;
+
     private Double precio;
+
     private String image;
 }
-

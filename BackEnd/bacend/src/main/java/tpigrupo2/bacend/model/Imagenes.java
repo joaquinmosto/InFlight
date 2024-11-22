@@ -14,10 +14,13 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name ="imagenes")
-public class Imagenes implements Serializable {
+public class Imagenes implements Serializable
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String ruta;
+
     private String image;
 }

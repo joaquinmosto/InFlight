@@ -9,10 +9,15 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class UserDTO {
+public class UserDTO
+{
     Integer id;
+
     String username;
+
     String lastname;
+
     String firstname;
+
     String role;
 }

@@ -13,10 +13,13 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name ="politicas")
-public class Politica implements Serializable {
+public class Politica implements Serializable
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String titulo;
+
     private String descripcion;
 }

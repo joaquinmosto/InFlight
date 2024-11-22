@@ -19,22 +19,26 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/favoritos")
-public class Producto_FavoritoController {
+public class Producto_FavoritoController
+{
     @Autowired
     IProducto_FavoritoService productoFavoritoService;
     @Autowired
     UserRepository userRep;
     @Autowired
     ProductoService productoService;
+
     //GET LISTAR
     @CrossOrigin("*")
     @GetMapping("/{usuario}")
-    public ResponseEntity<List<Producto_FavoritoDTO>> listarProductosFavoritos(@PathVariable String usuario){
+    public ResponseEntity<List<Producto_FavoritoDTO>> listarProductosFavoritos(@PathVariable String usuario)
+    {
        Optional<User> u = userRep.findByUsername(usuario);
-       if(u.isPresent()) {
+       if (u.isPresent()) {
            User user = u.get();
 
            Collection<Producto_Favorito> productoFavoritos = user.getFavorites(); //productoFavoritoService
+
            // .listarProductosFavoritos();
            List<Producto_FavoritoDTO> lista= productoFavoritos.stream().map(p -> new Producto_FavoritoDTO(
                    p.getId(),
@@ -51,41 +55,45 @@ public class Producto_FavoritoController {
 
     }
 
-
     //post, agregar un producto por id a favoritos
     @CrossOrigin("*")
     @PostMapping
-    public ResponseEntity<?> agregarProductoFavorito(@RequestBody Producto_FavoritoDTO producto){
+    public ResponseEntity<?> agregarProductoFavorito(@RequestBody Producto_FavoritoDTO producto)
+    {
         String usuario = producto.getUsuario();
         int id_producto = producto.getProducto();
-
         Producto_Favorito pf;
+
         try {
-            pf = new Producto_Favorito(0, userRep.findByUsername(usuario).get().getId(),
-                    productoService.buscarProducto(id_producto));
-        }catch (Exception exception){
+            pf = new Producto_Favorito(
+                    0,
+                    userRep.findByUsername(usuario).get().getId(),
+                    productoService.buscarProducto(id_producto)
+            );
+
+        } catch (Exception exception) {
             return new ResponseEntity<String>(exception.getMessage(), HttpStatus.NOT_FOUND);
         }
 
         Producto_Favorito productoFavorito = productoFavoritoService.agregarProductoFavorito(pf);
-
-        return new ResponseEntity<Producto_FavoritoDTO>( new Producto_FavoritoDTO(productoFavorito.getId(), usuario,
-                id_producto, pf.getProducto().getNombre()),
-                HttpStatus.OK);
-
-
-
+        return new ResponseEntity<Producto_FavoritoDTO>(
+                new Producto_FavoritoDTO(
+                    productoFavorito.getId(),
+                    usuario,
+                    id_producto,
+                    pf.getProducto().getNombre()
+                ),
+            HttpStatus.OK);
     }
-    //delete borrar un producto por id
 
+    //delete borrar un producto por id
     @CrossOrigin("*")
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteProductofavorito(@PathVariable Integer id){
-        if (productoFavoritoService.eliminarProductoFavorito(id)){
+    public ResponseEntity<String> deleteProductofavorito(@PathVariable Integer id)
+    {
+        if (productoFavoritoService.eliminarProductoFavorito(id)) {
             return ResponseEntity.ok("Producto favorito eliminado correctamente");
         }
         return ResponseEntity.notFound().build();
     }
-
-
 }

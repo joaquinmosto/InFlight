@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository;
 import tpigrupo2.bacend.model.Imagenes;
 
 @Repository
-public interface iImagenesRepository extends JpaRepository<Imagenes, Integer> {
-}
+public interface iImagenesRepository extends JpaRepository<Imagenes, Integer> {}

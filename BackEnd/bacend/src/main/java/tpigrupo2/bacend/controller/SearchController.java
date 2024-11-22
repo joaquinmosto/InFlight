@@ -14,37 +14,36 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/search")
-public class SearchController {
-
+public class SearchController
+{
     private final IProductoService productoService;
-
-    public SearchController(IProductoService productoService) {
-
-        this.productoService = productoService;
-    }
+    public SearchController(IProductoService productoService) { this.productoService = productoService; }
 
     @CrossOrigin("*")
     @GetMapping("/{busqueda}")
-    public List<String> autoCompletarNombre(@PathVariable String busqueda){
+    public List<String> autoCompletarNombre(@PathVariable String busqueda)
+    {
         Optional<List<String>> nombres = productoService.autoCompletarNombre(busqueda + "%");
-        if (nombres.isPresent()){
+        if (nombres.isPresent()) {
             return nombres.get();
-        }return List.of();
+        }
+        return List.of();
     }
 
     @CrossOrigin("*")
     @GetMapping
-    public List<ProductoDTO> search(@RequestParam HashMap<String, String> params){
-
+    public List<ProductoDTO> search(@RequestParam HashMap<String, String> params)
+    {
         String nombre = params.getOrDefault("nombre", "_");
-
         Collection<Producto> productos = productoService.listarProductos();
+
         return productos.stream()
-                .filter(producto -> producto.getNombre().startsWith(nombre))
-                .map(producto -> {
-            Optional<String> primeraImagen = producto.getImagenes().stream()
-                    .map(Imagenes::getRuta)
-                    .findFirst();
+                .filter(producto -> producto.getNombre()
+                        .startsWith(nombre))
+                        .map(producto -> {
+                            Optional<String> primeraImagen = producto.getImagenes().stream()
+                            .map(Imagenes::getRuta)
+                            .findFirst();
 
             return new ProductoDTO(
                     producto.getId(),
@@ -52,8 +51,7 @@ public class SearchController {
                     primeraImagen.orElse("NO HAY IMAGEN"),
                     producto.getDescripcion(),
                     producto.getCategoria() !=null ? producto.getCategoria().getNombre():"",
-                    producto.getCursos().size() != 0 ?
-                            producto.getCursos().stream()
+                    producto.getCursos().size() != 0 ? producto.getCursos().stream()
                                     .map(curso -> new CursoDTO(
                                             curso.getFechaInicio(),
                                             curso.getFechaFin(),
@@ -67,5 +65,4 @@ public class SearchController {
             );
         }).toList();
     }
-
 }

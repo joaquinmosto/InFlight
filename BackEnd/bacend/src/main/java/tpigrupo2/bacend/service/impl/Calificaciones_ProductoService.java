@@ -30,7 +30,7 @@ public class Calificaciones_ProductoService implements ICalificaciones_ProductoS
 
     @Override
     public List<Map<String, Object>> listarPuntuacionesPromedio() {
-        String jdbcUrl = "jdbc:mysql://db.ctd.academy:3306/0723TDPRON1C06LAED0222PT_GRUPO2?useSSL=false&serverTimezone=UTC";
+        String jdbcUrl = "jdbc:mysql://localhost:3306/dh";
         String usuario = "0723TDPRON1C06LAED0222PT_GRUPO2";
         String contrasena = "iPhe5ida";
 

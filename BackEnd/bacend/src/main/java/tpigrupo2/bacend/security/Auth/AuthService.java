@@ -21,22 +21,26 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class AuthService {
-
+public class AuthService
+{
     private final UserRepository userRepository;
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     //private final User user;
-    public AuthResponse login(LoginRequest request) {
+
+    public AuthResponse login(LoginRequest request)
+    {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         UserDetails user=userRepository.findByUsername(request.getUsername()).orElseThrow();
         Optional<User> u = userRepository.findByUsername(request.getUsername());
         User data=new User();
-        if(u.isPresent()){
+
+        if (u.isPresent()) {
             data = u.get();
         }
         String token=jwtService.getToken(user);
+
         return AuthResponse.builder()
             .token(token)
                 .username(data.getUsername())
@@ -45,10 +49,10 @@ public class AuthService {
                 .role(data.getRole().toString())
                 .id(data.getId().toString())
             .build();
-
     }
 
-    public AuthResponse register(RegisterRequest request) {
+    public AuthResponse register(RegisterRequest request)
+    {
         User user = User.builder()
             .username(request.getUsername())
             .password(passwordEncoder.encode( request.getPassword()))
@@ -56,7 +60,6 @@ public class AuthService {
             .lastname(request.getLastname())
             .role(Role.USER)
             .build();
-
         userRepository.save(user);
 
         return AuthResponse.builder()
@@ -66,7 +69,5 @@ public class AuthService {
                 .lastname(request.getLastname())
                 .role(Role.USER.toString())
             .build();
-        
     }
-
 }

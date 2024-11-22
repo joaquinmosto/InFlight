@@ -16,15 +16,15 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
 @Service
-public class JwtService {
-
+public class JwtService
+{
     private static final String SECRET_KEY="4B62506553597033733676397924586E3272357538782F413F4428472B68566B";
-
     public String getToken(UserDetails user) {
         return getToken(new HashMap<>(), user);
     }
 
-    private String getToken(Map<String,Object> extraClaims, UserDetails user) {
+    private String getToken(Map<String,Object> extraClaims, UserDetails user)
+    {
         return Jwts
             .builder()
             .setClaims(extraClaims)
@@ -35,7 +35,8 @@ public class JwtService {
             .compact();
     }
 
-    private Key getKey() {
+    private Key getKey()
+    {
        byte[] keyBytes=Decoders.BASE64.decode(SECRET_KEY);
        return Keys.hmacShaKeyFor(keyBytes);
     }
@@ -44,7 +45,8 @@ public class JwtService {
         return getClaim(token, Claims::getSubject);
     }
 
-    public boolean isTokenValid(String token, UserDetails userDetails) {
+    public boolean isTokenValid(String token, UserDetails userDetails)
+    {
         final String username=getUsernameFromToken(token);
         return (username.equals(userDetails.getUsername())&& !isTokenExpired(token));
     }
@@ -74,5 +76,4 @@ public class JwtService {
     {
         return getExpiration(token).before(new Date());
     }
-    
 }

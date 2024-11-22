@@ -7,6 +7,7 @@ import tpigrupo2.bacend.model.Categoria;
 import java.util.List;
 
 @Repository
-public interface ICategoriaRepository extends JpaRepository<Categoria, Integer> {
-    List<Categoria> findByNombre(String nombre);;
+public interface ICategoriaRepository extends JpaRepository<Categoria, Integer>
+{
+    List<Categoria> findByNombre(String nombre);
 }

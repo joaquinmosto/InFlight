@@ -10,25 +10,31 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name ="cursos")
-public class Curso implements Serializable{
+public class Curso implements Serializable
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private LocalDate fechaInicio;
+
     private LocalDate fechaFin;
+
     private int cupos;
+
     private String modalidad;
+
     private LocalTime horaInicio;
+
     private LocalTime horaFin;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_curso")
     private List<Reserva> reservas;
-
 }

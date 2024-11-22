@@ -9,6 +9,4 @@ import tpigrupo2.bacend.model.Reserva;
 import java.util.List;
 
 @Repository
-public interface IReservaRepository extends JpaRepository<Reserva, Integer> {
-
-}
+public interface IReservaRepository extends JpaRepository<Reserva, Integer> {}

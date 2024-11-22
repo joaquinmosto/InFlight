@@ -1,4 +1,5 @@
 package tpigrupo2.bacend.model;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,8 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Entity
 @Table(name ="reservas")
-public class Reserva implements Serializable{
+public class Reserva implements Serializable
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -27,18 +29,27 @@ public class Reserva implements Serializable{
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
     private LocalDate fecha_inicio;
+
     private LocalDate fecha_fin;
+
     private LocalTime hora_inicio;
+
     private LocalTime hora_fin;
+
     private Double precio;
+
     private int id_curso;
+
     private String nombre_producto;
+
     private String pdf;
+
     private int cantidad;
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha_reserva")
     private LocalDateTime fecha_reserva;
-
 }

@@ -8,8 +8,8 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
-public class AuthController {
-    
+public class AuthController
+{
     private final AuthService authService;
 
     @CrossOrigin("*")
@@ -18,6 +18,7 @@ public class AuthController {
     {
         return ResponseEntity.ok(authService.login(request));
     }
+
     @CrossOrigin("*")
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request)

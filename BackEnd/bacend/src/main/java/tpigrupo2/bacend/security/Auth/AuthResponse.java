@@ -9,11 +9,17 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthResponse {
+public class AuthResponse
+{
     String token;
+
     String username;
+
     String firstname;
+
     String lastname;
+
     String role;
+
     String id;
 }

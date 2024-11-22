@@ -16,8 +16,8 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/puntuaciones")
-public class CalificacionesController {
-
+public class CalificacionesController
+{
     @Autowired
     ICalificaciones_ProductoService calificaciones_service;
     @Autowired
@@ -27,49 +27,55 @@ public class CalificacionesController {
 
     @CrossOrigin("*")
     @GetMapping
-    public List<CalificacionDTO> listarPuntuaciones(){
+    public List<CalificacionDTO> listarPuntuaciones()
+    {
         List<Calificaciones_Producto> calificaciones = calificaciones_service.listarCalificaciones();
         List<CalificacionDTO> calificacionesDTO;
 
         calificacionesDTO = calificaciones.stream().map(elemento -> {
-            CalificacionDTO calificacionFinal = new CalificacionDTO(elemento.getUsuario().getUsername(), elemento.getProducto().getId(), elemento.getCalificacion(), elemento.getComentario(), elemento.getFechaCalificacion());
+            CalificacionDTO calificacionFinal = new CalificacionDTO(
+                    elemento.getUsuario().getUsername(),
+                    elemento.getProducto().getId(),
+                    elemento.getCalificacion(),
+                    elemento.getComentario(),
+                    elemento.getFechaCalificacion()
+            );
             return calificacionFinal;
         }).toList();
 
          return calificacionesDTO;
     }
 
-
     @CrossOrigin("*")
     @PostMapping
-    public ResponseEntity<?> agregarCalificacion(@RequestBody CalificacionDTO calificacion){
-
+    public ResponseEntity<?> agregarCalificacion(@RequestBody CalificacionDTO calificacion)
+    {
         try {
-        User usuario = userService.buscarUsuario(calificacion.getUsername());
-        Producto producto = productoService.buscarProducto(calificacion.getIdProducto());
+            User usuario = userService.buscarUsuario(calificacion.getUsername());
+            Producto producto = productoService.buscarProducto(calificacion.getIdProducto());
 
-        Calificaciones_Producto cf = new Calificaciones_Producto(
-                0,
-                usuario,
-                producto,
-                calificacion.getCalificacion(),
-                calificacion.getComentario(),
-                calificacion.getFechaCalificacion()
-        );
+            Calificaciones_Producto cf = new Calificaciones_Producto(
+                    0,
+                    usuario,
+                    producto,
+                    calificacion.getCalificacion(),
+                    calificacion.getComentario(),
+                    calificacion.getFechaCalificacion()
+            );
 
-        calificaciones_service.crearCalificacion(cf);
+            calificaciones_service.crearCalificacion(cf);
 
             return ResponseEntity.ok("Agregado correctamente" );
 
-        }catch (Exception exception){
+        } catch (Exception exception) {
             return new ResponseEntity<String>(exception.getMessage(), HttpStatus.NOT_FOUND);
         }
-
     }
 
     @CrossOrigin("*")
     @GetMapping("/promedio")
-    public List<Map<String, Object>> listarPuntuacionesPromedio(){
+    public List<Map<String, Object>> listarPuntuacionesPromedio()
+    {
         return calificaciones_service.listarPuntuacionesPromedio();
     }
 }

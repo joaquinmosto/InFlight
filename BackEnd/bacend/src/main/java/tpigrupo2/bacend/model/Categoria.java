@@ -14,14 +14,18 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name ="categorias")
-public class Categoria implements Serializable {
+public class Categoria implements Serializable
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String nombre;
+
     private String descripcion;
+
     private String image;
+
     @Column(columnDefinition="tinyint(1) default 0")
     private Boolean reservable;
 }
-

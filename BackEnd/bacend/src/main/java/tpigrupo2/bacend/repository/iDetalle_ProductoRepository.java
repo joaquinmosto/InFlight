@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository;
 import tpigrupo2.bacend.model.Detalle_Producto;
 
 @Repository
-public interface iDetalle_ProductoRepository extends JpaRepository<Detalle_Producto, Integer> {
-}
+public interface iDetalle_ProductoRepository extends JpaRepository<Detalle_Producto, Integer> {}
