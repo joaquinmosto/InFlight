@@ -10,7 +10,7 @@ import styles from "./login.module.css";
 const Login = (props) => {
   
   const {setCategorySelected, redirectProduct} = useGlobalState()
-  const apiUsers = "http://3.144.46.39:8080/auth/login";
+  const apiUsers = "http://localhost:8080/auth/login";
 
   const initialLoginStates = {
     username: "",

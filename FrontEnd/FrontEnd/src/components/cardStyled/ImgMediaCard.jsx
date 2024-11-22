@@ -35,7 +35,7 @@ export default function ImgMediaCard({ item, favorito, handleFavorito, logueado,
         </IconButton>
       }
 
-      <CardMedia sx={{ height: 250 }} image={item.imagen + "_tn.jpg"} title={item.nombre} />
+      <CardMedia sx={{ height: 250 }} image={item.imagen} title={item.nombre} />
       <CardContent sx={{ height: '40%' }}>
         <Typography variant="h5" component="div">
           {item.nombre.toUpperCase()}

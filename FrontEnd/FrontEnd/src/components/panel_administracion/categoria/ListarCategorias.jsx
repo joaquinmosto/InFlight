@@ -12,7 +12,7 @@ import axios from "axios";
 //import { ThemeProvider, createTheme, useTheme } from "@mui/material";
 
 export default function ListarCategorias() {
-  const apiUrl = "http://3.144.46.39:8080/categorias";
+  const apiUrl = "http://localhost:8080/categorias";
   const [token, setToken] = useState("")
   const [listCategoriaState, setListCategoriaState] = useState([]);
 
@@ -32,7 +32,7 @@ export default function ListarCategorias() {
         `Está seguro que desea eliminar la categoria ${nombre}`
       )
     ) {
-      axios.delete(`http://3.144.46.39:8080/categorias/${id}`,config);
+      axios.delete(`http://localhost:8080/categorias/${id}`,config);
       setListCategoriaState(listCategoriaState.filter((p) => p.id != id));
     }
   }

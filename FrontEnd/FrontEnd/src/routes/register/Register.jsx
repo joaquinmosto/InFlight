@@ -85,7 +85,7 @@ function Register() {
     setLastnameError("");
 
     try {
-      const response = await axios.post("http://3.144.46.39:8080/auth/register", {
+      const response = await axios.post("http://localhost:8080/auth/register", {
         username,
         firstname,
         lastname,

@@ -11,7 +11,7 @@ import axios from "axios";
 import dayjs from "dayjs";
 
 export default function ListadoVentas() {
-  const apiUrl = "http://3.144.46.39:8080/productos";
+  const apiUrl = "http://localhost:8080/productos";
 
   const [cursos, setCursos] = useState([]);
   const [horas, setHoras] = useState([]);

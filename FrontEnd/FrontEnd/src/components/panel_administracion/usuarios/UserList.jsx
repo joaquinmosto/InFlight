@@ -16,7 +16,7 @@ import {
 import swal from "sweetalert";
 
 export default function UserList() {
-  const apiUrl = "http://3.144.46.39:8080/users";
+  const apiUrl = "http://localhost:8080/users";
   const [listUserState, setListUserState] = useState([]);
   const [token, setToken] = useState("")
 
@@ -60,7 +60,7 @@ export default function UserList() {
         `Está seguro que desea eliminar el usuario ${nombre}`
       )
     ) {
-      axios.delete(`http://3.144.46.39:8080/users/${id}`,config);
+      axios.delete(`http://localhost:8080/users/${id}`,config);
       setListUserState(listUserState.filter((p) => p.id != id));
     }
   }

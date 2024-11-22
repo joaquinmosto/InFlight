@@ -9,8 +9,8 @@ import swal from "sweetalert";
 
 
 function CrearProducto() {
-  const apiUrl = "http://3.144.46.39:8080/categorias";
-  const apiUrlCar = "http://3.144.46.39:8080/caracteristicas";
+  const apiUrl = "http://localhost:8080/categorias";
+  const apiUrlCar = "http://localhost:8080/caracteristicas";
 
   const [listCategoriaState, setListCategoriaState] = useState([]);
   const [listCaracteristicas, setListCaracteristicas] = useState([]);
@@ -107,7 +107,7 @@ function CrearProducto() {
     };
 
     try {
-      const response = await fetch("http://3.144.46.39:8080/productos", {
+      const response = await fetch("http://localhost:8080/productos", {
         method: "POST",
         headers: {
           authorization: `Bearer ${token}`,

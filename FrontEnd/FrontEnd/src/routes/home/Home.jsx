@@ -8,9 +8,9 @@ import ImgMediaSkeleton from '../../components/cardStyled/ImgMediaSkeleton'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import SearchPanel from "../../components/searchPanel/SearchPanel";
 
-const apiUrl = "http://3.144.46.39:8080/productos";
-const apiUrlCat = "http://3.144.46.39:8080/categorias";
-const apiUrlPunt = "http://3.144.46.39:8080/puntuaciones/promedio";
+const apiUrl = "http://localhost:8080/productos";
+const apiUrlCat = "http://localhost:8080/categorias";
+const apiUrlPunt = "http://localhost:8080/puntuaciones/promedio";
 
 const Home = () => {
   const { categorySelected, setCategorySelected } = useGlobalState();
@@ -45,7 +45,7 @@ const Home = () => {
       const idFavorito = allFavorites.filter(item => item.producto === id)[0].id
 
       setProcesandoFetch(true)
-      axios.delete('http://3.144.46.39:8080/favoritos/' + idFavorito)
+      axios.delete('http://localhost:8080/favoritos/' + idFavorito)
         .then(response => {
           setProcesandoFetch(false)
           setIdFavoritos(actualizado)
@@ -62,7 +62,7 @@ const Home = () => {
         producto: id
       }
 
-      let urlFavs = 'http://3.144.46.39:8080/favoritos'
+      let urlFavs = 'http://localhost:8080/favoritos'
       setProcesandoFetch(true)
       const response = fetch(urlFavs, {
         method: "POST",
@@ -181,7 +181,7 @@ const Home = () => {
     setUsername(user);
 
     if (user !== "") {
-      const response2 = await axios.get('http://3.144.46.39:8080/favoritos/' + user);
+      const response2 = await axios.get('http://localhost:8080/favoritos/' + user);
       setAllFavorites(response2.data);
       setIdFavoritos(response2.data.map(item => item.producto))
     }

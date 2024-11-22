@@ -28,7 +28,7 @@ function ListaRating({ listaPuntuaciones, idProducto, puntuado, roundedRating, p
 
         setComment(event.target.value);
     };
-    const url = 'http://3.144.46.39:8080/puntuaciones';
+    const url = 'http://localhost:8080/puntuaciones';
     function crearCalificacion() {
         axios
             .post(url, {

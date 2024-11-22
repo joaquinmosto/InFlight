@@ -48,7 +48,7 @@ function CrearCaracteristica() {
     };
 
     try {
-      const response = await fetch("http://3.144.46.39:8080/caracteristicas", {
+      const response = await fetch("http://localhost:8080/caracteristicas", {
         method: "POST",
         headers: {
           authorization: `Bearer ${token}`,

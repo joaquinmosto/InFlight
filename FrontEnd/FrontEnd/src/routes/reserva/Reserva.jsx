@@ -132,7 +132,7 @@ export default function Reserva() {
       },
     };
     axios
-      .get("http://3.144.46.39:8080/usuario/" + data.username, config)
+      .get("http://localhost:8080/usuario/" + data.username, config)
       .then((res) => {
         setNombre(res.data.firstname || "");
         setApellido(res.data.lastname || "");
@@ -143,7 +143,7 @@ export default function Reserva() {
       });
 
     axios
-      .get("http://3.144.46.39:8080/productos/" + reserva.producto)
+      .get("http://localhost:8080/productos/" + reserva.producto)
       .then((res) => {
         setProducto(res.data);
         setImagenes(res.data.imagenes);
@@ -245,9 +245,9 @@ export default function Reserva() {
       pais: pais,
     };
 
-    axios.put("http://3.144.46.39:8080/usuario", userData, config);
+    axios.put("http://localhost:8080/usuario", userData, config);
 
-    axios.post("http://3.144.46.39:8080/reservas", data, config).then((res) => {
+    axios.post("http://localhost:8080/reservas", data, config).then((res) => {
       msj = res.data;
 
       alert("Reserva realizada", msj);
@@ -521,7 +521,7 @@ export default function Reserva() {
               {imagenes.slice(1, 4).map((im) => (
                 <div key={im?.ruta} className={styles.cont_min}>
                   <img
-                    src={im?.ruta + "_tn.jpg"}
+                    src={im?.ruta}
                     alt=""
                     className={styles.imagen_min}
                   />

@@ -12,7 +12,7 @@ import axios from "axios";
 //import { ThemeProvider, createTheme, useTheme } from "@mui/material";
 
 export default function ListarCaracteristicas() {
-  const apiUrl = "http://3.144.46.39:8080/caracteristicas";
+  const apiUrl = "http://localhost:8080/caracteristicas";
   const [token, setToken] = useState("")
   const [listCaracteristicaState, setListCaracteristicaState] = useState([]);
 
@@ -32,7 +32,7 @@ export default function ListarCaracteristicas() {
         `Está seguro que desea eliminar la caracteristica ${nombre}`
       )
     ) {
-      axios.delete(`http://3.144.46.39:8080/caracteristicas/${id}`,config);
+      axios.delete(`http://localhost:8080/caracteristicas/${id}`,config);
       setListCaracteristicaState(listCaracteristicaState.filter((p) => p.id != id));
     }
   }

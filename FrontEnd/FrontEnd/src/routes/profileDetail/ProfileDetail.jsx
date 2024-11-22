@@ -41,7 +41,7 @@
 //     const fetchFavoriteProducts = async () => {
 //       try {
 //         const response = await axios.get(
-//           `http://3.144.46.39:8080/favoritos/${userData.email}`
+//           `http://localhost:8080/favoritos/${userData.email}`
 //         );
 //         setFavoriteProducts(response.data);
 //       } catch (error) {
@@ -119,7 +119,7 @@ const ProfileDetail = () => {
     const data = await JSON.parse(localStorage.getItem("userData"));
     if (data) {
       setUserData(data);
-      const apiUrl = `http://3.144.46.39:8080/favoritos/${data.username}`;
+      const apiUrl = `http://localhost:8080/favoritos/${data.username}`;
       axios.get(apiUrl).then((res) => setListFavoritos(res.data));
     } else {
       redirect("/home")
@@ -139,7 +139,7 @@ const ProfileDetail = () => {
     if (
       confirm(`Está seguro que desea eliminar de favoritos a ${productoNombre}`)
     ) {
-      axios.delete(`http://3.144.46.39:8080/favoritos/${id}`, config);
+      axios.delete(`http://localhost:8080/favoritos/${id}`, config);
       setListFavoritos(listFavoritos.filter((p) => p.id != id));
     }
   }

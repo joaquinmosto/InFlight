@@ -88,7 +88,7 @@ export default function AccountMenu({ handleLogout, role, username, handleInitia
                 <Divider />
                 {//Botón para administración
                 }
-                {role === "ADMIN" &&
+                {role == "ADMIN" &&
                     <MenuItem onClick={() => {
                         handleClose()
                         navigate("/administracion")

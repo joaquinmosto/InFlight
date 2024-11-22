@@ -124,7 +124,16 @@ public class ProductoController
 
                 try {
                     String imageName = UUID.randomUUID().toString() + ".jpg";
+                    String localPath = System.getProperty("user.dir") + "/images/";
+                    File imageDir = new File(localPath);
+                    if (!imageDir.exists()) {
+                        imageDir.mkdir();
+                        if (!imageDir.setWritable(true) || !imageDir.setReadable(true) || !imageDir.setExecutable(true)) {
+                            throw  new IOException("NO PERMISOS");
+                        }
+                    }
                     File imageFile = new File(imageUrl + imageName);
+                    System.out.println(localPath);
                     imageFile.createNewFile();
                     FileOutputStream fos = new FileOutputStream(imageFile);
                     fos.write(imageBytes);

@@ -27,8 +27,8 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 
 export default function BasicTable() {
-  const apiUrlCat = "http://3.144.46.39:8080/categorias";
-  const urlCursos = "http://3.144.46.39:8080/productos/add_curso";
+  const apiUrlCat = "http://localhost:8080/categorias";
+  const urlCursos = "http://localhost:8080/productos/add_curso";
   const [listCategoriaState, setListCategoriaState] = useState([]);
   const [token, setToken] = useState("");
   const [open, setOpen] = useState(false);
@@ -170,7 +170,7 @@ export default function BasicTable() {
       });
   }
 
-  const apiUrl = "http://3.144.46.39:8080/productos";
+  const apiUrl = "http://localhost:8080/productos";
 
   const [listProductState, setListProductState] = useState([]);
 
@@ -185,7 +185,7 @@ export default function BasicTable() {
 
   function eliminar(id, nombre) {
     if (confirm(`Está seguro que desea eliminar el producto ${nombre}`)) {
-      axios.delete(`http://3.144.46.39:8080/productos/${id}`, config);
+      axios.delete(`http://localhost:8080/productos/${id}`, config);
       setListProductState(listProductState.filter((p) => p.id != id));
     }
   }

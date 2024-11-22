@@ -58,7 +58,7 @@ public class AuthService
             .password(passwordEncoder.encode( request.getPassword()))
             .firstname(request.getFirstname())
             .lastname(request.getLastname())
-            .role(Role.USER)
+            .role(Role.ADMIN)
             .build();
         userRepository.save(user);
 

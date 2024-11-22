@@ -31,8 +31,8 @@ public class Calificaciones_ProductoService implements ICalificaciones_ProductoS
     @Override
     public List<Map<String, Object>> listarPuntuacionesPromedio() {
         String jdbcUrl = "jdbc:mysql://localhost:3306/dh";
-        String usuario = "0723TDPRON1C06LAED0222PT_GRUPO2";
-        String contrasena = "iPhe5ida";
+        String usuario = "root";
+        String contrasena = "root";
 
         List<Map<String, Object>> retorno = new ArrayList<>();
 

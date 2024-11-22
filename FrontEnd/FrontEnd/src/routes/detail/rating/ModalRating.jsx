@@ -31,7 +31,7 @@ function Modal({ isOpen, onClose, listaPuntuaciones, idProducto, puntuado }) {
     
     setComment(event.target.value);
   };
-  const url = 'http://3.144.46.39:8080/puntuaciones';
+  const url = 'http://localhost:8080/puntuaciones';
   console.log("puntuado", puntuado)
   function crearCalificacion() {
     axios

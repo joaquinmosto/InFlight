@@ -37,6 +37,7 @@ public class SecurityConfig
                 .requestMatchers("/reservas/**").hasAnyAuthority("ADMIN","USER")
                 .requestMatchers("/usuario/**").hasAnyAuthority("ADMIN","USER")
                 .requestMatchers("/puntuaciones/**").permitAll()
+                .requestMatchers("/images/**").permitAll()
                 .requestMatchers(HttpMethod.GET).permitAll()
                 .anyRequest().hasAuthority("ADMIN")
                 )

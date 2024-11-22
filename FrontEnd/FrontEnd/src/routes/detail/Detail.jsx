@@ -40,7 +40,7 @@ const Detail = () => {
   /* MODAL */
   const [listaPuntuaciones, setListaPuntuaciones] = useState([]);
 
-  const url = "http://3.144.46.39:8080/puntuaciones";
+  const url = "http://localhost:8080/puntuaciones";
 
   function promediar(lista) {
     let sumatoria = 0;
@@ -151,7 +151,7 @@ const Detail = () => {
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("userData"));
     setToken(data ? data : "");
-    axios.get("http://3.144.46.39:8080/productos/" + params.id).then((res) => {
+    axios.get("http://localhost:8080/productos/" + params.id).then((res) => {
       setProducto(res.data);
       setImagenes(res.data.imagenes);
       setDescripcion(res.data.descripcion);
@@ -505,7 +505,7 @@ const Detail = () => {
         {imagenes.slice(1, 5).map((im) => (
           <div key={im?.ruta} className={styles.cont_min}>
             <img
-              src={im?.ruta + "_tn.jpg"}
+              src={im?.ruta}
               alt=""
               className={styles.imagen_min}
             />
